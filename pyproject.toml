@@ -1,7 +1,7 @@
 [project]
 name = "verbatim"
 version = "0.2.0"
-description = "Local, speaker-labelled transcripts and meeting notes for Anarlog recordings (Apple Silicon / MLX)"
+description = "Offline, speaker-labelled transcripts and meeting notes on Apple Silicon (MLX). Works with any audio/video file; Anarlog recordings are picked up automatically."
 readme = "README.md"
 license = "MIT"
 requires-python = ">=3.11,<3.14"
