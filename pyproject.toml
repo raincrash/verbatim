@@ -1,0 +1,38 @@
+[project]
+name = "verbatim"
+version = "0.2.0"
+description = "Local, speaker-labelled transcripts and meeting notes for Anarlog recordings (Apple Silicon / MLX)"
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.11,<3.14"
+dependencies = [
+    "parakeet-mlx>=0.7.0",
+    "mlx-whisper>=0.4.2",
+    "mlx-audio>=0.6.6",
+    "mlx-lm>=0.32.2",
+    "numpy",
+]
+
+[project.scripts]
+verbatim = "verbatim.cli:main"
+
+[dependency-groups]
+dev = ["pytest>=8", "ruff>=0.6"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+ignore = ["SIM108"]  # if/else blocks are often clearer than ternaries
+
+[tool.ruff.lint.per-file-ignores]
+"src/verbatim/summary.py" = ["E501"]  # the prompt text is kept verbatim
